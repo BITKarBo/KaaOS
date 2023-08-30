@@ -7,9 +7,7 @@ org 0x8000
 
 start:
 
-    ;viesti näytölle
-    mov si, alotus_viesti
-    call puts
+
 
     ; Lopeta
     cli          ; Poista keskeytykset käytöstä
@@ -36,8 +34,6 @@ puts:
     pop si
     ret
 
-
-alotus_viesti: db 'Tervetuloa KaaOS Operating Systemssiin! "ON hirvee kaaos" -KarBo_', ENDL, 0
 
 
 times 510-($-$$) db 0 ; Täytä käyttöjärjestelmän ytimen koko 510 tavulla
