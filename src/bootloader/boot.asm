@@ -214,11 +214,21 @@ main:
     mov si, msg_hello
     call puts
 
+    jmp aakkoset
+
     cli                         ; disable interrupts, this way CPU can't get out of "halt" state
     hlt
     
+aakkoset:
+    mov ah, 0x0E
+    inc al
+    cmp al, 255
+    je exit
+    int 0x10
+    jmp aakkoset
 
-
+exit:
+    ret
 
 msg_hello:              db 'Tervetuloa KaaOS Operating Systemssiin! "ON hirvee kaaos" -KarBo_', ENDL, 0
 msg_read_failed:        db 'Read Failed!', ENDL, 0
