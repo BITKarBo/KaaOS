@@ -214,6 +214,7 @@ main:
     mov si, msg_hello
     call puts
 
+    mov al, 33
     jmp aakkoset
 
     cli                         ; disable interrupts, this way CPU can't get out of "halt" state
@@ -221,10 +222,10 @@ main:
     
 aakkoset:
     mov ah, 0x0E
+    int 0x10
     inc al
     cmp al, 255
     je exit
-    int 0x10
     jmp aakkoset
 
 exit:
