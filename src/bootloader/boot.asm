@@ -231,7 +231,7 @@ aakkoset:
 exit:
     ret
 
-msg_hello:              db 'Tervetuloa KaaOS Operating Systemssiin! "ON hirvee kaaos" -KarBo_', ENDL, 0
+msg_hello:              db 'Tervetuloa KaaOS Operating Systemssiin! "hirvee ON KaaOS" -KarBo_', ENDL, 0
 msg_read_failed:        db 'Read Failed!', ENDL, 0
 
 
