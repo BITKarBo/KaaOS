@@ -217,9 +217,18 @@ main:
     mov al, 33
     jmp aakkoset
 
+    ;keyboard input
+    mov ah, 0
+    int 0x16
+    mov al, [char]
+    mov ah, 0x0E
+    int 0x10
+
     cli                         ; disable interrupts, this way CPU can't get out of "halt" state
     hlt
-    
+char:
+    db 0    
+
 aakkoset:
     mov ah, 0x0E
     int 0x10
